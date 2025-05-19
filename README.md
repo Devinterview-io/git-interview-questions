@@ -1,4 +1,4 @@
-# 100 Core Git Interview Questions
+# 100 Core Git Interview Questions in 2025
 
 <div>
 <p align="center">
