@@ -1,0 +1,32 @@
+public class Player {
+    private int health;
+    private int strength;
+    private int attack;
+
+    public Player(int health, int strength, int attack) {
+        this.health = health;
+        this.strength = strength;
+        this.attack = attack;
+    }
+
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+    public void attack(Player opponent, Die die) {
+        int attackRoll = die.roll();
+        int attackDamage = attack * attackRoll;
+        opponent.defend(attackDamage, die);
+    }
+
+    public void defend(int incomingDamage, Die die) {
+        int defenseRoll = die.roll();
+        int defense = strength * defenseRoll;
+        int netDamage = Math.max(0, incomingDamage - defense);
+        health = Math.max(0, health - netDamage);
+    }
+
+    public int getHealth() {
+        return health;
+    }
+}
